@@ -34,6 +34,7 @@ public class PositionType {
         return id == that.id;
     }
 
+
     @Override
     public int hashCode() {
         return Objects.hash(id);
