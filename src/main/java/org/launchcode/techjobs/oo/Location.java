@@ -14,6 +14,9 @@ public class Location {
     }
 public Location(String value){
         this();
+    if (value.isEmpty()) {
+        value = "Data not available";
+    }
         this.value = value;
         getId();
 

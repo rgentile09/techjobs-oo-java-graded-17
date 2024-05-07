@@ -15,6 +15,9 @@ public class PositionType {
 
     public PositionType(String value) {
         this();
+        if (value.isEmpty()) {
+            value = "Data not available";
+        }
         this.value = value;
     }
     @Override

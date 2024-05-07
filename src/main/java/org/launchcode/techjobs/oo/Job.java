@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+import static java.lang.System.lineSeparator;
+
 public class Job {
 
     private int id;
@@ -20,10 +22,10 @@ public class Job {
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this.name = name;
-        this.employer = employer;
-        this.location = location;
-        this.positionType = positionType;
-        this.coreCompetency = coreCompetency;
+        this.employer = new Employer(employer.getValue());
+        this.location = new Location(location.getValue());
+        this.positionType = new PositionType(positionType.getValue());
+        this.coreCompetency = new CoreCompetency(coreCompetency.getValue());
         id = new Job().getId();
     }
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
@@ -31,6 +33,9 @@ public class Job {
     //  the 'id' field.
 
     public String getName() {
+        if (name.isEmpty()) {
+            return "Data not available";
+        }
         return name;
     }
 
@@ -39,6 +44,7 @@ public class Job {
     }
 
     public Employer getEmployer() {
+
         return employer;
     }
 
@@ -90,5 +96,15 @@ public class Job {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return lineSeparator() + "ID: " + id + lineSeparator() +
+                "Name: " + name + lineSeparator() +
+                "Employer: " + employer + lineSeparator() +
+                "Location: " + location + lineSeparator() +
+                "Position Type: " + positionType + lineSeparator() +
+                "Core Competency: " + coreCompetency + lineSeparator();
     }
 }

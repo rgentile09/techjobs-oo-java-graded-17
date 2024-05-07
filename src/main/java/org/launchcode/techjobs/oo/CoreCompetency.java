@@ -51,6 +51,9 @@ public class CoreCompetency {
     }
 
     public void setValue(String value) {
+        if (value.isEmpty()) {
+            value = "Data not available";
+        }
         this.value = value;
     }
 

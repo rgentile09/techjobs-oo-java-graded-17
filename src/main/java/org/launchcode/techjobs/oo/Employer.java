@@ -16,6 +16,9 @@ public class Employer {
 
     public Employer(String value) {
         this();
+        if (value.isEmpty()) {
+            value = "Data not available";
+        }
         this.value = value;
     }
 
